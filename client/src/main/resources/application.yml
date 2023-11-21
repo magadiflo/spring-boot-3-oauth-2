@@ -1,1 +1,19 @@
+server:
+  port: 8080
 
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          spring-boot-client-idp:
+            provider: spring
+            client-id: spring-boot-client
+            client-secret: 12345
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
+            scope: openid, profile
+            client-name: spring-boot-client-idp
+        provider:
+          spring:
+            issuer-uri: http://localhost:9000

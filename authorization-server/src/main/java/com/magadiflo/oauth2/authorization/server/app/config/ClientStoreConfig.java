@@ -26,7 +26,10 @@ public class ClientStoreConfig {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/spring-boot-client-idp") // Dirección de la aplicación cliente en la que recibirá el código generado para poder intercambiarlo por un token
+
+                // Dirección de la aplicación cliente en la que recibirá el código generado para poder intercambiarlo por un token
+                // spring-boot-client-idp, es el 'registrationId' será usado en el application.yml del client
+                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/spring-boot-client-idp")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()) // preguntará al usuario si desea consentir a la aplicación cliente los scopes definidos
